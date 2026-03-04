@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="./images/logo.png" type="image/png">
+  <title>Dashboard — Luis Development Hub</title>
+</head>
+<body class="dashboard-page">
+
+  <div class="dash-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="dash-sidebar" id="dash-sidebar">
+      <div class="dash-sidebar-top">
+        <img src="./images/logo.png" alt="Logo" class="dash-logo">
+        <button class="dash-sidebar-close" id="sidebar-close" aria-label="Fechar menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="dash-nav">
+        <button class="dash-nav-btn active" data-section="overview">
+          <i class="fa-solid fa-chart-line"></i><span>Visão Geral</span>
+        </button>
+        <button class="dash-nav-btn" data-section="messages">
+          <i class="fa-solid fa-envelope"></i><span>Mensagens</span>
+          <span class="nav-badge" id="nav-unread" style="display:none"></span>
+        </button>
+        <button class="dash-nav-btn" data-section="users">
+          <i class="fa-solid fa-users"></i><span>Usuários</span>
+        </button>
+        <button class="dash-nav-btn" data-section="roles">
+          <i class="fa-solid fa-shield-halved"></i><span>Cargos</span>
+        </button>
+      </nav>
+
+      <div class="dash-sidebar-footer">
+        <div class="dash-user-chip" id="dash-user-chip"></div>
+        <button class="dash-notif-btn" id="notif-status-btn" onclick="Dashboard.requestNotificationPermission()">
+          <i class="fa-solid fa-bell"></i> Notificações
+        </button>
+        <button class="dash-logout-btn" onclick="Auth.logout()">
+          <i class="fa-solid fa-right-from-bracket"></i><span>Sair</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- OVERLAY mobile -->
+    <div class="dash-overlay" id="dash-overlay"></div>
+
+    <!-- MAIN -->
+    <div class="dash-body">
+      <header class="dash-topbar">
+        <button class="dash-hamburger" id="dash-hamburger" aria-label="Abrir menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <h2 class="dash-page-title" id="dash-page-title">Visão Geral</h2>
+        <span class="preview-mode-badge">
+          <i class="fa-solid fa-eye"></i> Preview
+        </span>
+      </header>
+
+      <main class="dash-main">
+
+        <!-- VISÃO GERAL -->
+        <section class="dash-section active" id="section-overview">
+          <div class="stat-grid" id="overview-cards"></div>
+          <div class="dash-panel" style="margin-top:1.5rem">
+            <h3 class="panel-title"><i class="fa-solid fa-clock-rotate-left"></i> Mensagens Recentes</h3>
+            <div id="recent-messages"></div>
+          </div>
+        </section>
+
+        <!-- MENSAGENS -->
+        <section class="dash-section" id="section-messages">
+          <div class="dash-panel">
+            <h3 class="panel-title"><i class="fa-solid fa-inbox"></i> Caixa de Entrada</h3>
+            <div id="messages-list"></div>
+          </div>
+        </section>
+
+        <!-- USUÁRIOS -->
+        <section class="dash-section" id="section-users">
+          <div class="dash-panel">
+            <div class="panel-header">
+              <h3 class="panel-title"><i class="fa-solid fa-users"></i> Usuários</h3>
+              <button class="btn-primary" onclick="Dashboard.openModal('modal-user')">
+                <i class="fa-solid fa-plus"></i> Novo Usuário
+              </button>
+            </div>
+            <div id="users-list"></div>
+          </div>
+        </section>
+
+        <!-- CARGOS -->
+        <section class="dash-section" id="section-roles">
+          <div class="dash-panel">
+            <div class="panel-header">
+              <h3 class="panel-title"><i class="fa-solid fa-shield-halved"></i> Cargos</h3>
+              <button class="btn-primary" onclick="Dashboard.openModal('modal-role')">
+                <i class="fa-solid fa-plus"></i> Novo Cargo
+              </button>
+            </div>
+            <div id="roles-list"></div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- MODAL: Novo Usuário -->
+  <div class="dash-modal" id="modal-user" style="display:none">
+    <div class="dash-modal-box">
+      <div class="modal-header">
+        <h3>Novo Usuário</h3>
+        <button onclick="Dashboard.closeModal('modal-user')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form onsubmit="Dashboard.submitUser(event)">
+        <div class="grupo-form"><input id="new-name"  type="text"  placeholder="Nome completo" required></div>
+        <div class="grupo-form"><input id="new-email" type="email" placeholder="E-mail" required></div>
+        <div class="grupo-form"><select id="new-role"></select></div>
+        <button type="submit" class="btn-primary" style="width:100%;margin-top:.5rem">Criar Usuário</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: Novo Cargo -->
+  <div class="dash-modal" id="modal-role" style="display:none">
+    <div class="dash-modal-box">
+      <div class="modal-header">
+        <h3>Novo Cargo</h3>
+        <button onclick="Dashboard.closeModal('modal-role')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form onsubmit="Dashboard.submitRole(event)">
+        <div class="grupo-form"><input id="new-role-name" type="text" placeholder="Nome do cargo" required></div>
+        <div class="grupo-form">
+          <span class="form-label">Permissões</span>
+          <div class="perms-grid">
+            <label class="perm-check"><input type="checkbox" value="view"> <i class="fa-solid fa-eye"></i> Visualizar</label>
+            <label class="perm-check"><input type="checkbox" value="create"> <i class="fa-solid fa-plus"></i> Criar</label>
+            <label class="perm-check"><input type="checkbox" value="edit"> <i class="fa-solid fa-pen"></i> Editar</label>
+            <label class="perm-check"><input type="checkbox" value="delete"> <i class="fa-solid fa-trash"></i> Excluir</label>
+            <label class="perm-check perm-check-full" style="grid-column:1/-1"><input type="checkbox" value="notifications"> <i class="fa-solid fa-bell"></i> Notificações</label>
+          </div>
+          <p id="perms-error" class="perms-error" style="display:none">Selecione ao menos uma permissão.</p>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;margin-top:.5rem">Criar Cargo</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: Perfil -->
+  <div class="dash-modal" id="modal-profile" style="display:none">
+    <div class="dash-modal-box">
+      <div class="modal-header">
+        <h3>Meu Perfil</h3>
+        <button onclick="Dashboard.closeModal('modal-profile')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="profile-avatar-section">
+        <div class="user-avatar-lg">P</div>
+        <button class="btn-sm btn-outline" onclick="Dashboard.showFullSystemNotice()">
+          <i class="fa-solid fa-camera"></i> Alterar foto
+        </button>
+      </div>
+      <div class="profile-field">
+        <div class="profile-field-info">
+          <span class="profile-field-label">Nome</span>
+          <span class="profile-field-value">Preview</span>
+        </div>
+        <button class="btn-sm btn-outline" onclick="Dashboard.showFullSystemNotice()"><i class="fa-solid fa-pen"></i></button>
+      </div>
+      <div class="profile-field">
+        <div class="profile-field-info">
+          <span class="profile-field-label">E-mail</span>
+          <span class="profile-field-value">preview@luisdevhub.com</span>
+        </div>
+        <button class="btn-sm btn-outline" onclick="Dashboard.showFullSystemNotice()"><i class="fa-solid fa-pen"></i></button>
+      </div>
+      <div class="profile-field">
+        <div class="profile-field-info">
+          <span class="profile-field-label">Senha</span>
+          <span class="profile-field-value">••••••••••</span>
+        </div>
+        <button class="btn-sm btn-outline" onclick="Dashboard.showFullSystemNotice()"><i class="fa-solid fa-pen"></i></button>
+      </div>
+      <div class="full-system-notice" id="full-system-notice">
+        <i class="fa-solid fa-lock"></i> Disponível apenas no sistema completo.
+      </div>
+    </div>
+  </div>
+
+  <script src="./javascript/db.js"></script>
+  <script src="./javascript/auth.js"></script>
+  <script src="./javascript/dashboard.js"></script>
+</body>
+</html>

@@ -1,13 +1,264 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Luis Arthur Home Page</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-  </head>
-  <body>
-    
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="./images/logo.png" type="image/png">
+  <meta name="description" content="Portfólio de Luís Arthur, desenvolvedor web FullStack especializado em sites modernos, responsivos e funcionais.">
+  <title>Luis Development Hub</title>
+</head>
+<body>
+  <nav class="nav-menu">
+    <img src="./images/logo.png" alt="Logo Luis Development Hub">
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul>
+      <li><a href="#home">Início</a></li>
+      <li><a href="#about">Sobre</a></li>
+      <li><a href="#projects">Projetos</a></li>
+      <li><a href="#services">Serviços</a></li>
+      <li><a href="#contact">Contato</a></li>
+    </ul>
+    <a href="./login.html" class="nav-login-btn">
+      <i class="fa-solid fa-right-to-bracket"></i> Entrar
+    </a>
+  </nav>
 
-  </body>
+  <main id="home" class="home">
+    <img src="./images/Luis.jpeg" alt="Foto de Luís Arthur">
+    <div>
+      <h1>Luís Arthur</h1>
+      <h2>Desenvolvedor FullStack</h2>
+      <p>Olá! <b>Me chamo Luis Arthur</b>, desenvolvedor web com foco em Full Stack. Construo sites modernos, responsivos e funcionais do zero. <a href="#about">Ler Mais...</a></p>
+      <ul>
+        <li><a target="_blank" href="https://discord.gg/zGf2XJxj7g"><i class="fa-brands fa-discord a-discord"></i></a></li>
+        <li><a target="_blank" href="https://www.linkedin.com/in/luisarthurrib/"><i class="fa-brands fa-linkedin a-linkedin"></i></a></li>
+        <li><a target="_blank" href="https://github.com/LuisArthurDev"><i class="fa-brands fa-github a-github"></i></a></li>
+      </ul>
+    </div>
+  </main>
+
+  <section id="about" class="about">
+    <div class="aboutbox">
+      <h2 class="title">Sobre Mim</h2>
+      <p>Olá! <b>Me chamo Luis Arthur</b>, tenho 26 anos e sou de Três Rios, RJ. Desde pequeno sempre fui muito curioso — aquele tipo de criança que queria entender tudo. Essa curiosidade me fez aprender muita coisa por conta própria.</p>
+      <p>Por volta de 2016 entrei no mundo da programação. Quanto mais estudava, mais me apaixonava pela área. Carrego até hoje uma frase que virou quase um lema: <i>"Um programador pode fazer seu próprio mundo."</i></p>
+      <p>Atualmente atuo como desenvolvedor web freelancer, com projetos publicados e disponíveis online. No tempo livre gosto de ler, jogar e assistir séries. A curiosidade que me trouxe até aqui é a mesma que me faz continuar evoluindo.</p>
+      <h3>Conhecimentos</h3>
+      <div class="aboutlanguages">
+        <div>
+          <i class="fa-brands fa-html5"></i>
+          <progress value="80" max="100"></progress>
+        </div>
+        <div>
+          <i class="fa-brands fa-css3"></i>
+          <progress value="80" max="100"></progress>
+        </div>
+        <div>
+          <i class="fa-brands fa-js"></i>
+          <progress value="60" max="100"></progress>
+        </div>
+        <div>
+          <i class="fa-brands fa-golang"></i>
+          <progress value="50" max="100"></progress>
+        </div>
+        <div>
+          <i class="fa-brands fa-git-alt"></i>
+          <progress value="70" max="100"></progress>
+        </div>
+        <div>
+          <i class="fa-solid fa-chess-pawn"></i>
+          <progress value="100" max="100"></progress>
+        </div>
+        <div>
+          <p><img src="images/Lua-Logo.svg.png"></p>
+          <progress value="20" max="100"></progress>
+        </div>
+        <div>
+          <p><img src="images/Typescript_logo_2020.svg.png"></p>
+          <progress value="20" max="100"></progress>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2 class="title">Meus Projetos</h2>
+    <div class="projects-box">
+      <div class="projects-card">
+        <a href="https://luisarthurdev.github.io/fivem-site/" target="_blank">
+          <img src="./images/fivem-preview.png" alt="Site FiveM RP">
+          <div>
+            <h3>Site Institucional FiveM RP</h3>
+            <p>Site responsivo para servidores de roleplay no FiveM. Inclui navbar com menu mobile, animações ao scroll, contador de jogadores online e design moderno com tema escuro.</p>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="projects-card">
+        <a href="https://github.com/LuisArthurDev/dio-desafio-myAPI" target="_blank">
+          <div class="project-placeholder">
+            <i class="fa-brands fa-golang"></i>
+          </div>
+          <div>
+            <h3>API REST com Golang</h3>
+            <p>API REST desenvolvida em Golang com Gorilla Mux para roteamento e respostas em JSON. Projeto focado em estrutura de backend e boas práticas.</p>
+            <div class="project-tags">
+              <span class="project-tag">Golang</span>
+              <span class="project-tag">Gorilla Mux</span>
+              <span class="project-tag">REST API</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="projects-card">
+        <a href="https://github.com/LuisArthurDev" target="_blank">
+          <div class="project-placeholder">
+            <i class="fa-brands fa-github"></i>
+          </div>
+          <div>
+            <h3>Mais no GitHub</h3>
+            <p>Acesse meu GitHub para ver todos os projetos em desenvolvimento, experimentos com novas tecnologias e contribuições open source.</p>
+            <div class="project-tags">
+              <span class="project-tag">GitHub</span>
+              <span class="project-tag">Open Source</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <h2 class="title">Serviços</h2>
+    <div class="services-box">
+      <div class="services-card">
+        <div class="service-icon"><i class="fa-solid fa-rocket"></i></div>
+        <div>
+          <h3>Site Básico — Starter</h3>
+          <p>Landing page responsiva com até 3 seções, design moderno e adaptado para mobile e desktop. Entrega em até 3 dias.</p>
+          <p class="price">R$ 150</p>
+          <ul>
+            <li><a target="_blank" href="https://wa.me/5524992905233?text=Olá! Tenho interesse no pacote Starter.">Comprar</a></li>
+            <li><a href="#contact">Saiba Mais</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="services-card">
+        <div class="service-icon"><i class="fa-solid fa-star"></i></div>
+        <div>
+          <h3>Site Completo — Professional</h3>
+          <p>Site completo com até 5 seções, animações ao scroll, menu mobile e ícones de redes sociais. Entrega em até 5 dias.</p>
+          <p class="price">R$ 300</p>
+          <ul>
+            <li><a target="_blank" href="https://wa.me/5524992905233?text=Olá! Tenho interesse no pacote Professional.">Comprar</a></li>
+            <li><a href="#contact">Saiba Mais</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="services-card">
+        <div class="service-icon"><i class="fa-solid fa-crown"></i></div>
+        <div>
+          <h3>Site Premium — Advanced</h3>
+          <p>Site completo personalizado com todas as seções, animações avançadas, contador dinâmico e otimização de performance. Entrega em até 7 dias.</p>
+          <p class="price">R$ 600</p>
+          <ul>
+            <li><a target="_blank" href="https://wa.me/5524992905233?text=Olá! Tenho interesse no pacote Advanced.">Comprar</a></li>
+            <li><a href="#contact">Saiba Mais</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="title">Entre em Contato</h2>
+    <div class="contact-options">
+      <div class="contact-whatsapp-wrapper">
+        <div class="contact-option contact-option-toggle" id="whatsapp-toggle">
+          <div class="contact-option-icon" style="background: linear-gradient(135deg, rgba(37,211,102,0.2), rgba(37,211,102,0.05)); border-color: rgba(37,211,102,0.3);">
+            <i class="fa-brands fa-whatsapp" style="color: #25D366;"></i>
+          </div>
+          <div>
+            <h3>WhatsApp</h3>
+            <p>Resposta mais rápida <span class="badge-rapido">⚡ Mais rápido</span></p>
+          </div>
+          <i class="fa-solid fa-chevron-down contact-chevron"></i>
+        </div>
+        <form class="contact-whatsapp-form" id="form-whatsapp" onsubmit="sendWhatsapp(event)">
+          <div class="grupo-form">
+            <label for="name" style="display:none">Nome</label>
+            <input id="name" type="text" placeholder="Nome">
+          </div>
+          <div class="grupo-form">
+            <label for="message" style="display:none">Mensagem</label>
+            <textarea id="message" rows="4" placeholder="Digite sua Mensagem"></textarea>
+          </div>
+          <button type="submit">Enviar WhatsApp</button>
+        </form>
+      </div>
+      <div class="contact-whatsapp-wrapper">
+        <div class="contact-option contact-option-toggle" id="direct-toggle">
+          <div class="contact-option-icon" style="background: linear-gradient(135deg, rgba(14,165,233,0.2), rgba(14,165,233,0.05)); border-color: rgba(14,165,233,0.3);">
+            <i class="fa-solid fa-paper-plane" style="color: var(--primaria);"></i>
+          </div>
+          <div>
+            <h3>Deixar Mensagem <span class="contact-preview-tag">PREVIEW</span></h3>
+            <p>Envie direto para o painel de mensagens</p>
+          </div>
+          <i class="fa-solid fa-chevron-down contact-chevron"></i>
+        </div>
+        <form class="contact-whatsapp-form" id="form-direct" onsubmit="sendDirectMessage(event)">
+          <div class="grupo-form">
+            <label for="direct-name" style="display:none">Nome</label>
+            <input id="direct-name" type="text" placeholder="Seu nome" required>
+          </div>
+          <div class="grupo-form">
+            <label for="direct-email" style="display:none">E-mail</label>
+            <input id="direct-email" type="email" placeholder="Seu e-mail" required>
+          </div>
+          <div class="grupo-form">
+            <label for="direct-subject" style="display:none">Assunto</label>
+            <input id="direct-subject" type="text" placeholder="Assunto" required>
+          </div>
+          <div class="grupo-form">
+            <label for="direct-message" style="display:none">Mensagem</label>
+            <textarea id="direct-message" rows="4" placeholder="Digite sua mensagem" required></textarea>
+          </div>
+          <div id="direct-feedback" style="display:none"></div>
+          <button type="submit">Enviar Mensagem</button>
+        </form>
+      </div>
+
+      <a class="contact-option" href="https://www.linkedin.com/in/luisarthurrib/" target="_blank">
+        <div class="contact-option-icon" style="background: linear-gradient(135deg, rgba(10,102,194,0.2), rgba(10,102,194,0.05)); border-color: rgba(10,102,194,0.3);">
+          <i class="fa-brands fa-linkedin" style="color: #0A66C2;"></i>
+        </div>
+        <div>
+          <h3>LinkedIn</h3>
+          <p>Conecte-se profissionalmente</p>
+        </div>
+      </a>
+      <a class="contact-option" href="https://discord.gg/zGf2XJxj7g" target="_blank">
+        <div class="contact-option-icon" style="background: linear-gradient(135deg, rgba(88,101,242,0.2), rgba(88,101,242,0.05)); border-color: rgba(88,101,242,0.3);">
+          <i class="fa-brands fa-discord" style="color: #5865F2;"></i>
+        </div>
+        <div>
+          <h3>Discord</h3>
+          <p>Entre no servidor</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <script src="./javascript/db.js"></script>
+  <script src="./javascript/script.js"></script>
+</body>
 </html>

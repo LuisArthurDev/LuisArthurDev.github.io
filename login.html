@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="./images/logo.png" type="image/png">
+  <title>Entrar — Luis Development Hub</title>
+</head>
+<body class="login-page">
+
+  <div class="login-container">
+    <a href="./index.html" class="login-back">
+      <i class="fa-solid fa-arrow-left"></i> Voltar ao site
+    </a>
+
+    <div class="login-card">
+      <img src="./images/logo.png" alt="Logo Luis Development Hub" class="login-logo">
+      <h1>Acesso Preview</h1>
+      <p class="login-subtitle">Explore o sistema de demonstração.</p>
+
+      <div class="no-crypto-warning">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>Sem criptografia</strong>
+          <p>Este é um sistema demonstrativo. Os dados são armazenados em texto simples no navegador (localStorage) e visíveis pelo F12. Não insira informações sensíveis reais.</p>
+        </div>
+      </div>
+
+      <div class="preview-banner">
+        <div class="preview-banner-header">
+          <i class="fa-solid fa-eye"></i>
+          <span>Credenciais de acesso</span>
+          <span class="preview-tag">DEMO</span>
+        </div>
+        <div class="preview-credentials">
+          <div>
+            <span class="cred-label">E-mail</span>
+            <span class="cred-value">preview@luisdevhub.com</span>
+          </div>
+          <div>
+            <span class="cred-label">Senha</span>
+            <span class="cred-value">preview123</span>
+            <button class="cred-copy" onclick="fillPreview()">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Preencher
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <form class="login-form" onsubmit="doLogin(event)">
+        <div class="grupo-form">
+          <label for="login-email" style="display:none">E-mail</label>
+          <input id="login-email" type="email" placeholder="E-mail">
+        </div>
+        <div class="grupo-form">
+          <label for="login-password" style="display:none">Senha</label>
+          <input id="login-password" type="password" placeholder="Senha">
+        </div>
+        <p class="login-error" id="login-error"></p>
+        <button type="submit" class="login-btn">
+          <i class="fa-solid fa-right-to-bracket"></i> Entrar
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="./javascript/db.js"></script>
+  <script src="./javascript/auth.js"></script>
+  <script src="./javascript/login.js"></script>
+</body>
+</html>
