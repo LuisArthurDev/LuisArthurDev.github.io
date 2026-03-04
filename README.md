@@ -83,4 +83,3 @@ Abra o `index.html` diretamente no navegador — não requer servidor ou depend�
 - **LinkedIn:** [luisarthurrib](https://www.linkedin.com/in/luisarthurrib/)
 - **GitHub:** [LuisArthurDev](https://github.com/LuisArthurDev)
 - **Discord:** [Entrar no servidor](https://discord.gg/zGf2XJxj7g)
-- **WhatsApp:** +55 (24) 99290-5233
